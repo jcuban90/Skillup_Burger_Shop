@@ -1,0 +1,25 @@
+.tab-content {
+    height: 100%;
+}
+
+.tab-content .tab-pane {
+    height: 100%;
+    color: #ededed;
+}
+
+.tab-content .tab-pane[open] {
+    display: block;
+}
+
+.fade:not(.show) {
+    opacity: 1 !important;
+}
+
+.registerForm,
+.loginForm {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}

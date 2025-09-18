@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import burger1 from "../../assets/burger1.png";
 import burger2 from "../../assets/burger2.png";
+import burger3 from "../../assets/burger3.png";
 // import burger3 here
+
+const burguers = [
+  {
+    id: 1,
+    src: burger1,
+    price: 250,
+    title: "Cheese Burger",
+    value: 0
+  },
+  {
+    id: 2,
+    src: burger2,
+    price: 300,
+    title: "Veggie Burger",
+    value: 0
+  },
+  {
+    id: 3,
+    src: burger3,
+    price: 350,
+    title: "Double Burger",
+    value: 0
+  }
+];
 
 const CartItem = ({ value, title, img, increment, decrement }) => (
   <div className="cartItem">
@@ -20,33 +45,46 @@ const CartItem = ({ value, title, img, increment, decrement }) => (
 );
 
 const Cart = () => {
-  const increment = (item) => {};
+  const [cartBurgues, setCartBurgers] = useState(burguers);
+  const [subTotal, setSubTotal] = useState(0);
+  
+  const increment = (item) => {
 
-  const decrement = (item) => {};
+    setCartBurgers(prev =>
+      prev.map(burger =>
+        burger.id === item.id
+          ? { ...burger, value: burger.value + 1 }
+          : burger
+      )
+    );
+  };
+
+  const decrement = (item) => {
+    setCartBurgers(prev =>
+      prev.map(burger =>
+        burger.id === item.id
+          ? { ...burger, value: burger.value + 1 }
+          : burger
+      )
+    );
+   };
 
   return (
     <section className="cart">
       <main>
-        <CartItem
-          title={"Cheese Burger"}
-          img={burger1}
-          value={0}
-          increment={() => increment(1)}
+        {
+          setCartBurgers.map((burger, index) => (
+            <CartItem
+              title={"Cheese Burger"}
+              img={burger.src}
+              value={burger.value}
+              increment={(burger) => increment(burger)}
+              decrement={(burger) => decrement(burger)}
+              key={burger}
+            />
+          ))
+        }
 
-        // Add the function for decrementing the order by 1 
-       
-        />
-        <CartItem
-          title={"Veg Cheese Burger"}
-          img={burger2}
-          value={0}
-          increment={() => increment(2)}
-        // Add the function for decrementing the order by 2
-       
-        />
-
-        {/* Fill up the code for Cheese Burger similarly */}
-       
 
         <article>
           <div>

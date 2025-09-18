@@ -76,3 +76,21 @@ a {
     font-size: 2rem;
   }
 }
+
+.popup-content {
+    background-color: #292d3e;
+    border: 1px solid #464545;
+    color: #fff;
+}
+
+.popup-content {
+    border-radius: 5px;
+    padding: .5rem;
+    -webkit-animation: .3s cubic-bezier(.38,.1,.36,.9) forwards a;
+}
+.popup-content {
+    background: #fff;
+    border: 1px solid #d7d7d7;
+    margin: auto;
+    width: 50%;
+}
